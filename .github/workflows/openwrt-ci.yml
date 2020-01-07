@@ -7,12 +7,12 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 #
 
-name: OpenWrt-ZQF-1.0
+name: OpenWrt-CI
 
 # on:
   # push:
     # branches: 
-      - master
+      - ZQF1.0
   #     ↑↑↑ 改成你的分支名, 一般是master
   # schedule:
   #   - cron: 0 20 * * *
@@ -27,7 +27,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
         with:
-          ref: CI-demo
+          ref: ZQF1.0
         #      ↑↑↑ 改成你的分支名, 一般是master
 
       - name: Initialization environment
