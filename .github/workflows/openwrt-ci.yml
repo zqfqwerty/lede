@@ -14,9 +14,9 @@ on:
     branches: 
       - ZQF
   #     ↑↑↑ 改成你的分支名, 一般是master
-  schedule:
-    - cron: 0 20 * * *
-  release: 1.0
+  # schedule:
+  #   - cron: 0 20 * * *
+  # release: 1.0
   #   types: [published]
 
 jobs:
