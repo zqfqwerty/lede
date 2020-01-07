@@ -12,11 +12,11 @@ name: OpenWrt-CI
 # on:
   # push:
     # branches: 
-      - ZQF1.0
+      - ZQF
   #     ↑↑↑ 改成你的分支名, 一般是master
-  # schedule:
-  #   - cron: 0 20 * * *
-  # release:
+  schedule:
+    - cron: 0 20 * * *
+  release: 1.0
   #   types: [published]
 
 jobs:
@@ -27,7 +27,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
         with:
-          ref: ZQF1.0
+          ref: ZQF
         #      ↑↑↑ 改成你的分支名, 一般是master
 
       - name: Initialization environment
@@ -131,6 +131,14 @@ jobs:
           EOF
           # 常用LuCI插件选择:
           cat >> .config <<EOF
+          CONFIG_PACKAGE_luci-app-S-S R-plus=y
+          CONFIG_PACKAGE_luci-app-S-S R-plus —> Include s-s New Versiong=y
+          CONFIG_PACKAGE_luci-app-S-S R-plus —> Include V2ray=y
+          CONFIG_PACKAGE_luci-app-S-S R-plus —> Include Trojan=y
+          CONFIG_PACKAGE_luci-app-S-S R-plus —> Include s-sR Socks and Tunnel=y
+          CONFIG_PACKAGE_luci-app-S-S R-plus —> Include s-sR Server=y
+          CONFIG_PACKAGE_luci-app-S-S R-plus —> Include Kcptun=y
+          CONFIG_PACKAGE_luci-app-flowoffload=y
           CONFIG_PACKAGE_luci-app-adbyby-plus=y
           CONFIG_PACKAGE_luci-app-aria2=y
           CONFIG_PACKAGE_luci-app-baidupcs-web=y
@@ -142,17 +150,25 @@ jobs:
           CONFIG_PACKAGE_luci-app-openvpn=y
           CONFIG_PACKAGE_luci-app-openvpn-server=y
           CONFIG_PACKAGE_luci-app-qbittorrent=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Socks=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
           CONFIG_PACKAGE_luci-app-ttyd=y
           CONFIG_PACKAGE_luci-app-v2ray-server=y
           CONFIG_PACKAGE_luci-app-verysync=y
           CONFIG_PACKAGE_luci-app-webadmin=y
           CONFIG_PACKAGE_luci-app-wireguard=y
           CONFIG_PACKAGE_luci-app-wrtbwmon=y
+          CONFIG_PACKAGE_luci-app-accesscontrol=y
+          CONFIG_PACKAGE_luci-app-ddns=y
+          CONFIG_PACKAGE_luci-app-filetransfer=y
+          CONFIG_PACKAGE_luci-app-wol=y
+          CONFIG_PACKAGE_luci-app-sqm=y
+          CONFIG_PACKAGE_luci-app-dnscrypt-proxy=y
+          CONFIG_PACKAGE_luci-app-dnscrypt-dnsforwarder=y
+          CONFIG_PACKAGE_luci-app-upnp=y
+          CONFIG_PACKAGE_luci-app-vlmcsd=y
+          CONFIG_PACKAGE_luci-app-ramfree=y
+          CONFIG_PACKAGE_luci-app-mwan3=y
+          CONFIG_PACKAGE_luci-app-mwan3helper=y
+          CONFIG_PACKAGE_luci-app-statistics=y
           EOF
           # LuCI主题:
           cat >> .config <<EOF
